@@ -1,3 +1,5 @@
 # Arr
 
-My first GitHub project.
+git add .
+git commit -m "Initial commit"
+git push -u origin main
