@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int binarySearch(int p[], int l, int r, int k)
+{
+    if (l > r)
+        return -1;
+
+    int mid = l + (r - l) / 2;
+
+    if (p[mid] == k)
+        return mid;
+
+    if (k < p[mid])
+        return binarySearch(p, l, mid - 1, k);
+    else
+        return binarySearch(p, mid + 1, r, k);
+}
+
+int main()
+{
+    int n;
+
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    int p[n];
+
+    cout << "Enter elements in sorted order: ";
+    for (int i = 0; i < n; i++)
+    {
+        cin >> p[i];
+    }
+
+    int k;
+    cout << "Enter number to search: ";
+    cin >> k;
+
+    int result = binarySearch(p, 0, n - 1, k);
+
+    if (result == -1)
+        cout << "Number not found";
+    else
+        cout << "Number found at index: " << result;
+
+    return 0;
+}
